@@ -10,24 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_25_201636) do
+ActiveRecord::Schema.define(version: 2020_02_25_201541) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "controllers", force: :cascade do |t|
-    t.string "users"
-    t.string "index"
-    t.string "show"
-    t.string "edit"
-    t.string "new"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "genres", force: :cascade do |t|
     t.string "name"
     t.bigint "user_id", null: false
+    t.string "photo_url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_genres_on_user_id"
@@ -37,6 +28,7 @@ ActiveRecord::Schema.define(version: 2020_02_25_201636) do
     t.string "name"
     t.string "host"
     t.time "episode_length"
+    t.string "url"
     t.bigint "genre_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

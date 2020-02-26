@@ -1,2 +1,22 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<h1><%= "#{@user.name} Preferred Genre's"%></h1>
+
+<p>  <%=link_to new_user_genre_path(@user), method: :get do %> 
+    <i class="medium material-icons">add_circle</i>
+ <% end %>
+ </p>
+
+<ul>
+    <% @user.genres do |genre|%>
+     <li>
+      <h3> <%= link_to "#{genre.name} Genre's Top Podcasts", user_genres_path(@user) %> </h3>
+      <p><%= link_to edit_genre_path(genre), method: :get do %>
+          <i class="material-icons">edit</i>
+        <% end %>
+        &nbsp &nbsp  
+        <%= link_to user_genres_path(@user, genre), method: :delete do %>
+          <i class="material-icons">delete</i>
+        <% end %>
+      </p>
+    </li>
+    <%end%>
+  </ul>

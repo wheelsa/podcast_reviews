@@ -1,2 +1,21 @@
-<h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
+<h1><%="Reviewer's Top Podcast Pages"%></h1>
+<p>  <%=link_to new_user_path, method: :get do %> 
+    <i class="medium material-icons">add_circle</i>
+ <% end %>
+ </p>
+
+<ul>
+    <% @users.each do |user|%>
+     <li>
+      <h3> <%= link_to "#{user.name}'s Page", user_genres_path(user) %> </h3>
+      <p><%= link_to edit_user_path(user), method: :get do %>
+          <i class="material-icons">edit</i>
+        <% end %>
+        &nbsp &nbsp  
+        <%= link_to user_path(user), method: :delete do %>
+          <i class="material-icons">delete</i>
+        <% end %>
+      </p>
+    </li>
+    <%end%>
+  </ul>

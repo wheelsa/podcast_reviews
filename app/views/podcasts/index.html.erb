@@ -1,2 +1,32 @@
-<h1>Podcasts#index</h1>
-<p>Find me in app/views/podcasts/index.html.erb</p>
+<h1><%= "#{@genre.name} Top Genre Podcasts"%></h1>
+
+<p>  <%=link_to new_genre_podcast_path(@genre), method: :get do %> 
+    <i class="medium material-icons">add_circle</i>
+ <% end %>
+ </p>
+
+    <% @podcast.each do |podcast|%>
+    <div class="col s12 m7">
+      <div class="card">
+        <div class="card-image">
+          <img class="responsive-img" src="">
+          <span class="card-title"><%= link_to "#{podcast.name}", podcast.url%></span>
+        </div>
+        <div class="card-content">
+          <p>This is the <%=podcast.name%> hosted by <%=podcast.host%>. Average Episode Length is <%=podcast.episode_length%>.</p>
+        </div>
+        <div class="card-action">
+            <p><%= link_to edit_genre_podcast_path(@genre, podcast), method: :get do %>
+          <i class="material-icons">edit</i>
+        <% end %>
+        &nbsp &nbsp  
+        <%= link_to genre_podcast_path(@genre, podast), method: :delete do %>
+          <i class="material-icons">delete</i>
+        <% end %>
+      </p>
+        </div>
+      </div>
+    </div>
+  </div>
+           
+    <%end%>

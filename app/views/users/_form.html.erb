@@ -1,0 +1,15 @@
+<%= form_with(model: @user, local: true, class: "ui form") do |f|%>
+  <div>
+    <%= f.label :name %>
+    <%= f.text_field :name, required: true, placeholder: "User Name"%>
+  </div>
+  <div>
+    <%= f.label :country %>
+    <%= f.text_field :country, required: true, placeholder: "Home Country"%>
+  </div>
+  <div >
+    <%= f.label :age %>
+    <%= f.number_field :age, required: true, placeholder: "Age"%>
+  </div>
+<%= f.submit nil, class: "waves-effect waves-light btn"%>
+<% end %>
